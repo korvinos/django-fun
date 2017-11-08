@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import get_object_or_404, render
-
-# Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect
-from .models import Choice, Question
-from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404, render
+from .models import Choice, Question
 
 
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'blog/index.html', context)
-    
+
+
 def detail(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'blog/detail.html', {'question': question})
 
+
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'blog/results.html', {'question': question})
+
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)

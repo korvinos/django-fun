@@ -1,15 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% extends "blog/base.html" %}
+{% block content %}
+
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
-
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}" />
 {% if latest_question_list %}
-    <ul>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'blog:detail' question.id %}">{{ question.question_text }}</a></li>
+
+        <div class="card card_custom">
+            <div class="card-body">
+                                        <p class="card-title">Question # {{ question.id }}</p>
+
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h4 class="card-text" style="padding-top: 15px">{{ question.question_text }}</h4>
+                    </div>
+                    <div class="col-lg-5">
+                        <a href="{% url 'blog:detail' question.id %}" >
+                            <button class="button">Answer</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
-
-<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+{% endblock %}
+</body>
+</html>

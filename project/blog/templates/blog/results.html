@@ -1,9 +1,43 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "blog/base.html" %}
+{% block content %}
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+{% load static %}
 
-<a href="{% url 'blog:detail' question.id %}">Vote again?</a>
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}" />
+    <div class="card card_custom" >
+            <div class="card-body">
+                <p class="card-title">Question # {{ question.id }}</p>
+                <h1 class="card-title">{{ question.question_text }}</h1>
+                <p class="card-text">
+                <ul>
+                {% for choice in question.choice_set.all %}
+                <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+                {% endfor %}
+            </ul>
+                <a href="{% url 'blog:detail' question.id %}"><button class="button">Vote again?</button></a>
+
+
+
+            </div>
+    </div>
+
+        <div class="card card_custom">
+            <div class="card-body">
+        <div id="disqus_thread" style="padding-top: 40px;">
+        <script type="text/javascript" src="{% static 'blog/js/disqus.js' %}"></script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <script id="dsq-count-scr" src="//hacktrip.disqus.com/count.js" async></script>
+    </div>            </div>
+         </div>
+
+
+{% endblock %}
+</body>
+</html>

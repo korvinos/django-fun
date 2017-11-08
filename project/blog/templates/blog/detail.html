@@ -1,12 +1,35 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "blog/base.html" %}
+{% block content %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% load static %}
 
-<form action="{% url 'blog:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
-</form>
+<link rel="stylesheet" type="text/css" href="{% static 'blog/css/style.css' %}" />
+    <div class="card card_custom">
+            <div class="card-body">
+                <p class="card-title">Question # {{ question.id }}</p>
+                <p class="card-title"><h1>{{ question.question_text }}</h1></p>
+                <p class="card-text">
+                    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                <form action="{% url 'blog:vote' question.id %}" method="post">
+                    {% csrf_token %}
+                    {% for choice in question.choice_set.all %}
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+                    {% endfor %}
+                    <button class="button" type="submit" value="Vote"> Vote</button>
+                </form>
+            </div>
+
+        </div>
+
+
+{% endblock %}
+</body>
+</html>

@@ -31,6 +31,11 @@ ALLOWED_HOSTS = [u'192.168.33.10']
 # Application definition
 
 INSTALLED_APPS = [
+    'geospaas.catalog',
+    # END ANSIBLE MANAGED BLOCK geospaas.catalog
+    # BEGIN ANSIBLE MANAGED BLOCK geospaas.vocabularies
+    'geospaas.vocabularies',
+    'geospass_fun',
     'blog.apps.BlogConfig',    
     'django.contrib.admin',
     'django.contrib.auth',

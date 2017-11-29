@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.http import HttpResponse
 from __future__ import unicode_literals
 

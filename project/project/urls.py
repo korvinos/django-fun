@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^data/', include('geospass_fun.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^geospass_fun/', include('geospass_fun.urls')),
+    url(r'', include('home.urls'))
 ]

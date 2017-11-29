@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% extends "geospass_fun/base.html" %}
+{% block content %}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'geospass_fun/css/style.css' %}" />
+{% if filename %}
+    {% for file in filename %}
+
+        <div class="card card_custom">
+            <div class="card-body">
+                <p class="card-title">{{ file }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No data are available.</p>
+{% endif %}
+{% endblock %}
+</body>
+</html>

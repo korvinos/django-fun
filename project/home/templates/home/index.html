@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Django4Ever</title>
+    </head>
+    <body>
+    {% extends "home/base.html" %}
+    {% block content %}
+
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}" />
+    <br />
+    <a href="/blog/"> 
+        <button class="button">Questionnaire</button> 
+    </a>
+    <br />
+    <a href="/geospass_fun/"> 
+        <button class="button">Satellite Images</button> 
+    </a>
+    <!-- <a class="navbar-brand" href="/blog/">GeoSpaas Questionnaire</a> -->
+    <!-- <a class="navbar-brand" href="/geospass_fun/">Satellite Images</a> -->
+    {% endblock %}
+    </body>
+</html>

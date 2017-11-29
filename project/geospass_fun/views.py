@@ -6,7 +6,5 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404, render
 
 def page(request):
-    return render(request, 'geospass_fun/index.html')
-    
-def header(request):
-    return render(request, 'geospass_fun/header.html')
+    context = {'filename': ['I cant', 'believe', 'that', 'this works!']}
+    return render(request, 'geospass_fun/index.html', context)

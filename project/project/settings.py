@@ -31,6 +31,8 @@ ALLOWED_HOSTS = [u'192.168.33.10']
 # Application definition
 
 INSTALLED_APPS = [
+    'geospaas',
+    'geospaas.nansat_ingestor',
     'geospaas.catalog',
     # END ANSIBLE MANAGED BLOCK geospaas.catalog
     # BEGIN ANSIBLE MANAGED BLOCK geospaas.vocabularies
@@ -81,8 +83,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'NAME': os.path.join(BASE_DIR, 'spatialite.db'),
     }
 }
 

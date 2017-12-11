@@ -1,16 +1,16 @@
-from django.http import HttpResponse
 from __future__ import unicode_literals
-
-
-# #---
-# #
-import os, sys
-#os.environ['DJANGO_SETTINGS_MODULE'] = 'geospaas_project.settings'
-#sys.path.insert(0, '/vagrant/shared/course_vm/geospaas_project/')
+from django.http import HttpResponse
 #
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404, render
+from django.conf import settings
+
+
+
+import os, sys
 import django
 django.setup()
-#
 from django.conf import settings
 from geospaas.catalog.models import Dataset
 from geospaas.catalog.models import DatasetURI
@@ -20,6 +20,9 @@ def index(request):
     return HttpResponse("Hello, The details of the data  will be printed here: ")
 
 #
+def page(request):
+    context = {'filename': ['I cant', 'believe', 'that', 'this works!']}
+    return render(request, 'geospass_fun/index.html', context)
 
 
 def read_data(request):
@@ -526,24 +529,4 @@ def read_data(request):
 
 
 
-
-
-=======
-from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, render
-from django.conf import settings
-from geospaas.catalog.models import Dataset
-
-def page(request):
-    context = {'filename': ['I cant', 'believe', 'that', 'this works!']}
-    return render(request, 'geospass_fun/index.html', context)
-
-def  read_data(request):
-#     #search by instrument
-#      ds = Dataset.objects.filter(source__instrument__short_name='MODIS')
-#       output = ';  '.join([str(d.time_coverage_start) for d in ds])
-       output = "This suppose to be a list of data read with geospas models"
-       return HttpResponse(output)
->>>>>>> df8125557d96a38d2ffd499a7c5a8f923769f4de
 

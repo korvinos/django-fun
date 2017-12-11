@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load static %}
+<div style="width: 100%">
+<link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}" />
+    <div id="partners">
+
+        <h2>Powered by</h2>
+        <a href="https://www.djangoproject.com/"> <img src="{% static 'home/img/django.png' %}"> </a>
+        <a href="https://www.python.org/"> <img src="{% static 'home/img/python.png' %}"> </a>
+        <a href="https://github.com/"> <img src="{% static 'home/img/github.png' %}"> </a>
+        <a href="http://getbootstrap.com/"> <img src="{% static 'home/img/boostrap.png' %}"> </a>
+        <a href="https://disqus.com/"> <img src="{% static 'home/img/disqus.png' %}"> </a>
+        <a href="https://www.nersc.no/"> <img src="{% static 'home/img/nersc.png' %}"> </a>
+
+
+    </div>
+
+    <div id="copyright">
+        <p> Nansen Environmental and Remote Sensing Center / 17 Nov 2017 </p>
+    </div>
+</div>
+</body>
+</html>

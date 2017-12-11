@@ -1,0 +1,76 @@
+#coder {
+    color: black;
+    text-decoration: none;
+}
+
+#coder:hover {
+	color: grey;
+
+}
+
+h1 {
+    color: magenta;
+    text-align: center;
+}
+
+.card_custom {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.sidebar_custom {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding: 20px
+}
+
+#copyright {
+	min-height:50px;
+	background-color: darkgrey;
+	text-align: center;
+}
+
+#copyright p {
+	padding-top: 10px;
+}
+
+#partners {
+    padding-top: 20px;
+	text-align: center;
+	background-color: #f2f3f4 ;
+	overflow: hidden;
+}
+
+#partners a {
+	display: -moz-inline-stack; /* для FF ниже 3  */
+    display:inline-block;
+    vertical-align:text-top;
+    zoom:1; /* обычный layout fix для ИЕ6 */
+    *display:inline; /* для ИЕ 6, 7 */
+}
+
+#partners img {
+	padding: 30px 30px 30px 30px;
+	height: 120px;
+	-webkit-filter: grayscale(100%);
+}
+
+#partners img:hover {
+	-webkit-filter: grayscale(0%);
+}
+
+button.button {
+    color: green;
+    text-decoration: none;
+	font-size: 40px;
+	width: 100%;
+	padding: 10px;
+	border: 2px solid lightpink;
+	background-color: white;
+}
+
+button.button:hover {
+	color: white;
+    background-color: lightpink;
+	border: 2px solid lightpink;
+}

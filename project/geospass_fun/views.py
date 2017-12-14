@@ -30,8 +30,8 @@ def read_data(request):
     #ds = Dataset.objects.filter(source__instrument__short_name='MODIS')
     ds = Dataset.objects.all()
     output = ';  '.join([str(d.time_coverage_start) for d in ds])
-    output= ' This time coverage start for >>>>>>>>: \n' + output \
-            +'     >>>  from  data center=' + ';  '.join([str(d.data_center) for d in ds])
+    output= " This time coverage start for >>>>>>>>: \n " + output \
+            +'     >>>  from  data center= \n' + ';  '.join([str(d.data_center) for d in ds])
     #output = "This suppose to be a list of data read with geospas models"
     return HttpResponse(output)
 
